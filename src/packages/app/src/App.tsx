@@ -34,6 +34,8 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 
+import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
+
 const app = createApp({
   apis,
   bindRoutes({ bind }) {
