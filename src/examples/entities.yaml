@@ -3,7 +3,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: examples
+  name: portal
 spec:
   owner: guests
 ---
@@ -16,8 +16,19 @@ spec:
   type: website
   lifecycle: experimental
   owner: guests
-  system: examples
+  system: portal
   providesApis: [example-grpc-api]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: component-name
+  description: Some description of the component-name component
+spec:
+  type: service
+  lifecycle: production
+  owner: guests
+  system: portal
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
 apiVersion: backstage.io/v1alpha1
@@ -28,7 +39,7 @@ spec:
   type: grpc
   lifecycle: experimental
   owner: guests
-  system: examples
+  system: portal
   definition: |
     syntax = "proto3";
 
@@ -39,3 +50,5 @@ spec:
     message ExampleMessage {
       string example = 1;
     };
+  
+    
